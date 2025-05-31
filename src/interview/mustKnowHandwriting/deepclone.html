@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    const deepclone = (a, b) => {
+      if (a === b) return true;
+      if (
+        a === null ||
+        b === null ||
+        typeof a !== "object" ||
+        typeof b !== "object"
+      )
+        return false;
+
+      const keysA = Object.keys(a);
+      const keysB = Object.keys(b);
+
+      if (keysA.lenght !== keysB.length) return false;
+
+      for (let key of keysA) {
+        if (!keysB.includes(key)) return false;
+        if (!deepclone(a[key], b[key])) return false;
+      }
+
+      return true;
+    };
+  </script>
+  <body></body>
+</html>
